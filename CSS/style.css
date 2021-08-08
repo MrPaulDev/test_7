@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-family: sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  outline: none;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.wrap {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.scoreScreen {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 10vw;
+  width: 41vw;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(211, 211, 211, 0.39)), color-stop(transparent), color-stop(transparent), color-stop(transparent), to(rgba(211, 211, 211, 0.432)));
+  background: linear-gradient(90deg, rgba(211, 211, 211, 0.39), transparent, transparent, transparent, rgba(211, 211, 211, 0.432));
+  -webkit-box-shadow: 0 2px 3px lightgray;
+          box-shadow: 0 2px 3px lightgray;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 42vw;
+}
+
+.elem {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 24%;
+          flex: 0 0 24%;
+  margin-bottom: 3px;
+  margin-right: 3px;
+  border-radius: 12px;
+  border: 3px solid lightgray;
+  height: 10vw;
+  cursor: pointer;
+  -webkit-transition: background 0.3s, height 0.3s, -webkit-transform 600ms;
+  transition: background 0.3s, height 0.3s, -webkit-transform 600ms;
+  transition: background 0.3s, height 0.3s, transform 600ms;
+  transition: background 0.3s, height 0.3s, transform 600ms, -webkit-transform 600ms;
+}
+
+.transform {
+  -webkit-transform: rotate3d(1, 1, 1, 118deg);
+          transform: rotate3d(1, 1, 1, 118deg);
+}
+
+.showElem {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 24%;
+          flex: 0 0 24%;
+  margin-bottom: 3px;
+  margin-right: 3px;
+  border-radius: 12px;
+  border: 3px solid lightgray;
+  height: 7vw;
+  cursor: pointer;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.message {
+  font-size: 5vw;
+  text-align: center;
+  white-space: pre-line;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.initialPos {
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+}
+
+.finalPos {
+  opacity: 0;
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+
+@media screen and (max-width: 1199px) {
+  .scoreScreen {
+    width: 53vw;
+    height: 11vw;
+  }
+  .field {
+    width: 54vw;
+  }
+  .elem {
+    height: 11vw;
+  }
+  .showElem {
+    height: 7vw;
+  }
+  .message {
+    font-size: 6vw;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .scoreScreen {
+    width: 59vw;
+    height: 15vw;
+  }
+  .field {
+    width: 60vw;
+  }
+  .elem {
+    height: 15vw;
+  }
+  .showElem {
+    height: 10vw;
+  }
+  .message {
+    font-size: 7vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .scoreScreen {
+    width: 79vw;
+    height: 20vw;
+  }
+  .field {
+    width: 80vw;
+  }
+  .elem {
+    height: 20vw;
+  }
+  .showElem {
+    height: 15vw;
+  }
+  .message {
+    font-size: 9vw;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .scoreScreen {
+    width: 95vw;
+    height: 24vw;
+  }
+  .field {
+    width: 96vw;
+  }
+  .elem {
+    height: 24vw;
+  }
+  .showElem {
+    height: 18vw;
+  }
+  .message {
+    font-size: 12vw;
+  }
+}
