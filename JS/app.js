@@ -32,12 +32,15 @@ const colors = [
 	'midnightblue',
 ]
 
-// const color_close = 'snow';
+// save timerID for clearInterval()
+let timerID;
 
 // click's counter
 let count = 0;
+
 // amount of open color pairs
 let success_counter = 2
+
 // flag for timer
 let timer_flag = true;
 
@@ -133,6 +136,8 @@ function cleanField() {
 				}), 300)
 }
 
+
+// check game progress
 function isGameOver(){
 	const collection = document.querySelectorAll('.elem')
 	// CASE: if user WIN (timer has not ended)

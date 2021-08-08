@@ -24,7 +24,17 @@ function startTimer(){
 						 setTimeout(() => timer.classList.remove('shotred'), 300)
 					}
 
-					if(seconds === 0 ) clearInterval(timerID)
+					// CASE: game over
+					if(seconds === 0 ){
+						// block other element's
+						 const elem_collection = document.querySelectorAll('.elem')
+						 		 elem_collection.forEach(item => item.className = 'showElem')
+								
+								// stop timer
+								clearInterval(timerID)
+								// show message
+								sendMessage(createMessDescript('Game over', '#cd5c5cb0'))
+					}
 				},1000)
 
 		return timerID;

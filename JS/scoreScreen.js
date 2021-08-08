@@ -10,8 +10,12 @@ function createElem(tag, className, id) {
 	return elem
 }
 // create constant's of dyration << Pause >> (between add and remove)
+const dyration_first = 0
 const dyration_remove = 300
 const dyration_add = 300;
+
+// flag first message
+let first_message = true;
 
 // create and append Score - Wrap
 const screenWrap = createElem('div', 'screen-wrap')
@@ -27,11 +31,9 @@ const time = createElem('div', 'time')
 		timer.append(time)
 		screenWrap.append(timer)
 
-// save timerID for clearInterval()
-let timerID;
 
 // create message templates
-const message_start = `READY?\ntap to start`
+// const message_start = `READY?\ntap to start`
 
 
 function sendMessage({text, fontSize, color}){
@@ -43,6 +45,7 @@ function sendMessage({text, fontSize, color}){
 	if(current_message !== null){
 		current_message.classList.add('finalPos')
 		setTimeout(()=> current_message.remove(), dyration_remove)
+		first_message = false
 	}
 
 	// 2. send new message
@@ -55,6 +58,6 @@ function sendMessage({text, fontSize, color}){
 				// append after dyration_remove
 				screen.append(message)
 				setTimeout(() => message.classList.remove('initialPos'), 30)
-			}, dyration_add + 120)
+			}, (first_message) ? dyration_first : dyration_add)
 }
 
