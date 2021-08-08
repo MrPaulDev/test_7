@@ -2,6 +2,7 @@
 
 
 function startTimer(){
+
 	const timer = document.querySelector('.timer')
 	const time = timer.querySelector('.time')
 	let seconds = 60;
@@ -25,4 +26,6 @@ function startTimer(){
 
 					if(seconds === 0 ) clearInterval(timerID)
 				},1000)
+
+		return timerID;
 }

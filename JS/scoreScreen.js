@@ -27,6 +27,9 @@ const time = createElem('div', 'time')
 		timer.append(time)
 		screenWrap.append(timer)
 
+// save timerID for clearInterval()
+let timerID;
+
 // create message templates
 const message_start = `READY?\ntap to start`
 

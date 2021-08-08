@@ -32,11 +32,15 @@ const colors = [
 	'midnightblue',
 ]
 
-const color_close = 'snow';
+// const color_close = 'snow';
 
 // click's counter
 let count = 0;
+// amount of open color pairs
+let success_counter = 2
+// flag for timer
 let timer_flag = true;
+
 
 // create color's for one game
 // clone array with help spred operator ...arr
@@ -64,7 +68,8 @@ function showColor(event) {
 	if(event.target.classList.contains('elem')) {
 		count++;
 		if(timer_flag){
-			startTimer()
+			// save for clearInterval() *in case, when user win
+			timerID = startTimer()
 			timer_flag = false;
 		};
 
@@ -81,6 +86,8 @@ function showColor(event) {
 			compareElems()
 			count = 0
 		}
+
+		isGameOver()
 	}
 }
 
@@ -90,6 +97,7 @@ function compareElems() {
 
 	// double click by one element
 	if(compare_collection.length === 1) {
+		 success_counter = 0
 		 cleanField()
 		 sendMessage(createMessDescript('Try again', '#cd5c5cb0'))
 		 return
@@ -97,12 +105,15 @@ function compareElems() {
 
 	// target case 
 	if(compare_collection[0].style.background === compare_collection[1].style.background) {
-		compare_collection.forEach(item => item.className = 'showElem')
-		sendMessage(createMessDescript('Great', '#9acd32a3'))
+		success_counter++;
+		compare_collection.forEach(item => item.className = 'showElem');
+		(success_counter === 1) ? sendMessage(createMessDescript('Great', '#9acd32a3')) :
+										 sendMessage(createMessDescript(`Great X${success_counter}`, '#9acd32a3'))
 		return
 	}
 
 	// other case's
+	success_counter = 0
 	cleanField()
 	sendMessage(createMessDescript('Try again', '#add8e6d1'))
 
@@ -122,6 +133,14 @@ function cleanField() {
 				}), 300)
 }
 
+function isGameOver(){
+	const collection = document.querySelectorAll('.elem')
+	// CASE: if user WIN (timer has not ended)
+	if(collection.length === 0){
+		clearInterval(timerID)
+		setTimeout(()=>sendMessage(createMessDescript('You Win!', '#9acd32a3')), 1200)
+	}
+}
 
 
 // open page animation
@@ -133,7 +152,7 @@ function startView(collection){
 
 	setTimeout(()=>{
 		sendMessage(createMessDescript('Helloy', '#87cefa'));
-		setTimeout(()=>sendMessage(createMessDescript('Click to Start', 'slateblue')), 1200);
+		setTimeout(()=>sendMessage(createMessDescript('Click to Start', 'slateblue')), 800);
 	}, 0)
 }
 
