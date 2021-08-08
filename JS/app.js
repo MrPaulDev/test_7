@@ -36,6 +36,7 @@ const color_close = 'snow';
 
 // click's counter
 let count = 0;
+let timer_flag = true;
 
 // create color's for one game
 // clone array with help spred operator ...arr
@@ -62,7 +63,10 @@ const field = document.querySelector('.field')
 function showColor(event) {
 	if(event.target.classList.contains('elem')) {
 		count++;
-		startTimer();
+		if(timer_flag){
+			startTimer()
+			timer_flag = false;
+		};
 
 		const elem = event.target;
 		const order = elem.getAttribute('order')
@@ -141,7 +145,7 @@ function createMessDescript(message, color){
 		fontSize: (innerWidth >= 1199) ? '5vw' :
 					 (innerWidth < 1199 && innerWidth >= 981) ? '7vw':
 					 (innerWidth < 981 && innerWidth >= 767) ? '7vw' :
-					 (innerWidth >= 575) ? '10vw' : '12vw',
+					 (innerWidth >= 575) ? '10vw' : '11vw',
 		color: color,		
 	}
 }
