@@ -13,9 +13,19 @@ function createElem(tag, className, id) {
 const dyration_remove = 300
 const dyration_add = 300;
 
-// create and append Score Screen
+// create and append Score - Wrap
+const screenWrap = createElem('div', 'screen-wrap')
+// create and appned Score Screen
 const scoreScreen = createElem('div', 'scoreScreen')
-		document.querySelector('.wrap').prepend(scoreScreen)
+		screenWrap.append(scoreScreen)
+		document.querySelector('.wrap').prepend(screenWrap)
+
+// create and append Timer
+const timer = createElem('div', 'timer')
+const time = createElem('div', 'time')
+		time.textContent = '1:00'
+		timer.append(time)
+		screenWrap.append(timer)
 
 // create message templates
 const message_start = `READY?\ntap to start`

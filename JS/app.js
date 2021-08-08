@@ -62,6 +62,7 @@ const field = document.querySelector('.field')
 function showColor(event) {
 	if(event.target.classList.contains('elem')) {
 		count++;
+		startTimer();
 
 		const elem = event.target;
 		const order = elem.getAttribute('order')
@@ -132,15 +133,15 @@ function startView(collection){
 	}, 0)
 }
 
-
+// descriptor for function << sendMessage >>
 function createMessDescript(message, color){
 
 	return {
 		text:message,
 		fontSize: (innerWidth >= 1199) ? '5vw' :
 					 (innerWidth < 1199 && innerWidth >= 981) ? '7vw':
-					 (innerWidth < 981 && innerWidth >= 767) ? '9vw' :
-					 														'12vw',
+					 (innerWidth < 981 && innerWidth >= 767) ? '7vw' :
+					 (innerWidth >= 575) ? '10vw' : '12vw',
 		color: color,		
 	}
 }

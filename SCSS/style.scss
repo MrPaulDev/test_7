@@ -24,22 +24,42 @@ html, body{
 	justify-content: center;
 	align-items: center;
 }
-.scoreScreen{
+.screen-wrap{
 	margin-bottom: 12px;
 	border-radius: 12px;
+	padding: 12px;
+	width: 41vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background:linear-gradient(90deg,  rgba(211, 211, 211, 0.39), transparent, transparent, transparent, rgba(211, 211, 211, 0.432));
+	box-shadow: 0 2px 3px lightgray;
+}
+
+.scoreScreen{
+	flex-grow: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 10vw;
-	width: 41vw;
-	background:linear-gradient(90deg,  rgba(211, 211, 211, 0.39), transparent, transparent, transparent, rgba(211, 211, 211, 0.432));
+	transition: 300ms;
+}
+.timer{
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10vw;
+	width: 10vw;
 	box-shadow: 0 2px 3px lightgray;
+	background-color: #ffeb3b;
 	transition: 300ms;
 }
 
 
 // parent
 .field{
+	margin-bottom: 12px;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -91,14 +111,32 @@ html, body{
 	transform: translateY(-20px);
 }
 
+// Time
+.time{
+	font-size: 5vw;
+	transition: 300ms;
+}
+
+.timer.shotyellow{
+	box-shadow: 0px 0px 0px 12px #ffeb3b;
+}
+
+.timer.shotorange{
+	box-shadow:  0px 0px 0px 12px orange;
+}
+
+.timer.shotred{
+	box-shadow: 0px 0px 0px 12px #e57373;
+}
+
 
 
 
 
 @media screen and (max-width:1199px) {
-	.scoreScreen{
+	.screen-wrap{
 		width: 53vw;
-		height: 11vw;
+		// height: 11vw;
 	}
 	.field{
 		width: 54vw;
@@ -115,9 +153,9 @@ html, body{
 }
 
 @media screen and (max-width:991px) {
-	.scoreScreen{
+	.screen-wrap{
 		width: 59vw;
-		height: 15vw;
+		// height: 15vw;
 	}
 	.field{
 		width: 60vw;
@@ -131,12 +169,19 @@ html, body{
 	.message{
 		font-size: 7vw;
 	}
+
+	.timer{
+		height: 12vw;
+		width: 12vw;
+	}
+	.time{
+		font-size: 7vw;
+	}
 }
 
 @media screen and (max-width:767px) {
-	.scoreScreen{
+	.screen-wrap{
 		width: 79vw;
-		height: 20vw;
 	}
 	.field{
 		width: 80vw;
@@ -148,14 +193,18 @@ html, body{
 		height: 15vw;
 	}
 	.message{
-		font-size: 9vw;
+		font-size: 7vw;
+	}
+	.timer{
+		height: 15vw;
+		width: 15vw;
+		font-size: 7vw;
 	}
 }
 
 @media screen and (max-width:575px) {
-	.scoreScreen{
+	.screen-wrap{
 		width: 95vw;
-		height: 24vw;
 	}
 	.field{
 		width: 96vw;
@@ -168,5 +217,12 @@ html, body{
 	}
 	.message{
 		font-size: 12vw;
+	}
+	.timer{
+		height: 18vw;
+		width: 18vw;
+	}
+	.time{
+		font-size: 10vw;
 	}
 }
